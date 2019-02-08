@@ -12,7 +12,7 @@ public class Comment {
     @Column(name = "PostId")
     private Long postId;
     @Column(name = "Score")
-    private Long score;
+    private Integer score;
     @Column(name = "Text")
     private String text;
     @Column(name = "CreationDate")
@@ -38,11 +38,11 @@ public class Comment {
         this.postId = postId;
     }
 
-    public Long getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(Long score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
