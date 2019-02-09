@@ -62,6 +62,7 @@ public class DatabaseService {
         query.setMapUnderscoreToCamelCase(false);
         PageInfo<User> userPageInfo = PageHelper.startPage(pageIndex, pageSize, false)
                 .doSelectPageInfo(() -> userDao.selectByDynamicQuery(query));
+
         List<User> users = userPageInfo.getList();
         List<UserDTO> userDTOS = users.stream()
                 .map(x -> {
