@@ -59,6 +59,7 @@ public class DatabaseService {
                 .selectProperty(User::getProfileImageUrl)
                 .addFilterDescriptor(User::getDisplayName, FilterOperator.NOT_EQUAL, null)
                 .addSortDescriptor(User::getCreationDate, SortDirection.DESC);
+        query.setMapUnderscoreToCamelCase(false);
         PageInfo<User> userPageInfo = PageHelper.startPage(pageIndex, pageSize, false)
                 .doSelectPageInfo(() -> userDao.selectByDynamicQuery(query));
         List<User> users = userPageInfo.getList();
